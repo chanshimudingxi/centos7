@@ -84,12 +84,12 @@ make install
 
 # curl
 cd ${THIRD_PARTY_PATH}
-if [ ! -d curl-8_10_0 ]; then
+if [ ! -d  curl-curl-8_10_0 ]; then
     wget https://github.com/curl/curl/archive/refs/tags/curl-8_10_0.tar.gz
     tar -zxvf curl-8_10_0.tar.gz
-    cd curl-8_10_0
+    cd  curl-curl-8_10_0
 else
-    cd curl-8_10_0
+    cd  curl-curl-8_10_0
     make uninstall
     make clean
 fi
