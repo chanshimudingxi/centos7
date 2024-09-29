@@ -60,7 +60,7 @@ else
     make uninstall
     make clean
 fi
-make PREFIX=${BUILD_PATH} static
+make PREFIX=${BUILD_PATH}
 make PREFIX=${BUILD_PATH} install
 
 # redis-plus-plus
