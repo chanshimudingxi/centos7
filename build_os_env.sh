@@ -19,7 +19,10 @@ yum makecache
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 
 
 yum update -y 
-yum install -y wget git vim net-tools tcpdump make cmake3 automake libtool m4 autoconf
 yum install -y gcc gcc-c++ glibc-static libstdc++-static
+yum install -y zlib-static zlib-devel
+yum install -y openssl-static openssl-devel 
+yum install -y wget git vim net-tools tcpdump make cmake3 automake libtool m4 autoconf
 yum install -y devtoolset-8-gcc devtoolset-8-gcc-c++ devtoolset-8-binutils
+
 

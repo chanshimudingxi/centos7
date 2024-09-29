@@ -8,9 +8,6 @@ echo "third_party: ${THIRD_PARTY_PATH}"
 BUILD_PATH=${WORKPATH}/build
 echo "build: ${BUILD_PATH}"
 
-#yum install -y zlib-static zlib-devel
-#yum install -y openssl-static openssl-devel 
-
 if [ ! -d ${THIRD_PARTY_PATH} ]; then
     mkdir -p ${THIRD_PARTY_PATH}
 fi
@@ -20,34 +17,34 @@ if [ ! -d ${BUILD_PATH} ]; then
 fi
 
 # zlib
-cd ${THIRD_PARTY_PATH}
-if [ ! -d zlib-1.2.11 ]; then
-    wget https://nchc.dl.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz
-    tar -zxvf zlib-1.2.11.tar.gz
-    cd zlib-1.2.11
-else
-    cd zlib-1.2.11
-    make uninstall
-    make clean
-fi
-./configure --prefix=${BUILD_PATH} --static
-make
-make install
+# cd ${THIRD_PARTY_PATH}
+# if [ ! -d zlib-1.2.11 ]; then
+#     wget https://nchc.dl.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz
+#     tar -zxvf zlib-1.2.11.tar.gz
+#     cd zlib-1.2.11
+# else
+#     cd zlib-1.2.11
+#     make uninstall
+#     make clean
+# fi
+# ./configure --prefix=${BUILD_PATH} --static
+# make
+# make install
 
 # openssl 
-cd ${THIRD_PARTY_PATH}
-if [ ! -d openssl-1.1.0f ]; then
-    wget https://www.openssl.org/source/openssl-1.1.0f.tar.gz
-    tar -zxvf openssl-1.1.0f.tar.gz
-    cd openssl-1.1.0f
-else
-    cd openssl-1.1.0f
-    make uninstall
-    make clean
-fi
-./config -fPIC no-shared --openssldir=${BUILD_PATH}/etc/ssl --prefix=${BUILD_PATH} zlib no-dso
-make
-make install
+# cd ${THIRD_PARTY_PATH}
+# if [ ! -d openssl-1.1.0f ]; then
+#     wget https://www.openssl.org/source/openssl-1.1.0f.tar.gz
+#     tar -zxvf openssl-1.1.0f.tar.gz
+#     cd openssl-1.1.0f
+# else
+#     cd openssl-1.1.0f
+#     make uninstall
+#     make clean
+# fi
+# ./config -fPIC no-shared --openssldir=${BUILD_PATH}/etc/ssl --prefix=${BUILD_PATH} zlib no-dso
+# make
+# make install
 
 # hiredis
 cd ${THIRD_PARTY_PATH}
