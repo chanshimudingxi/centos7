@@ -3,8 +3,8 @@
 #WORKPATH=$(dirname $(pwd))
 WORKPATH=$(pwd)
 echo "workpath: ${WORKPATH}"
-THIRD_PARTY_PATH=${WORKPATH}/third_party
-echo "third_party: ${THIRD_PARTY_PATH}"
+THIRD_PARTY_PATH=${WORKPATH}/third-party
+echo "third-party: ${THIRD_PARTY_PATH}"
 BUILD_PATH=${WORKPATH}/build
 echo "build: ${BUILD_PATH}"
 
@@ -69,8 +69,8 @@ make install
 
 # spdlog
 cd ${THIRD_PARTY_PATH}
-if [ ! -d spdlog-1.14.1 ]; then
+if [ ! -d spdlog ]; then
     wget https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz
     tar -zxvf v1.14.1.tar.gz
-    cd spdlog-1.14.1
+    mv spdlog-1.14.1 spdlog
 fi
