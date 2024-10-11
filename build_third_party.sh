@@ -3,8 +3,8 @@
 #WORKPATH=$(dirname $(pwd))
 WORKPATH=$(pwd)
 echo "workpath: ${WORKPATH}"
-THIRD_PARTY_PATH=${WORKPATH}/third-party
-echo "third-party: ${THIRD_PARTY_PATH}"
+THIRD_PARTY_PATH=${WORKPATH}/third_party
+echo "third_party: ${THIRD_PARTY_PATH}"
 BUILD_PATH=${WORKPATH}/build
 echo "build: ${BUILD_PATH}"
 
