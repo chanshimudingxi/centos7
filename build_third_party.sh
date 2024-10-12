@@ -51,19 +51,20 @@ make install
 
 # curl
 cd ${THIRD_PARTY_PATH}
-if [ ! -d  curl-curl-8_10_0 ]; then
-    wget https://github.com/curl/curl/archive/refs/tags/curl-8_10_0.tar.gz
-    tar -zxvf curl-8_10_0.tar.gz
-    cd  curl-curl-8_10_0
+if [ ! -d  curl-8.5.0 ]; then
+    wget https://github.com/curl/curl/releases/download/curl-8_5_0/curl-8.5.0.tar.gz
+    tar -zxvf curl-8.5.0.tar.gz
+    cd curl-8.5.0
 else
-    cd  curl-curl-8_10_0
+    cd curl-8.5.0
     make uninstall
     make clean
 fi
 autoreconf -fi
 # export CPPFLAGS="-I/usr/include/openssl -I/usr/include"
 # export LDFLAGS="-L/usr/lib64"
-./configure --disable-shared --enable-static --without-libpsl --with-openssl --with-zlib --prefix=${BUILD_PATH}
+# ./configure --disable-shared --enable-static --without-libpsl --with-openssl --with-zlib --prefix=${BUILD_PATH}
+./configure --disable-dict --disable-pop3 --disable-imap --disable-smb --disable-smtp --disable-gopher --disable-mqtt --disable-manual --disable-ldap --disable-ldaps --disable-rtsp  --disable-tftp --disable-file --disable-ftp --disable-telnet  --disable-docs --without-zstd --with-openssl --prefix=${BUILD_PATH}
 make
 make install
 
