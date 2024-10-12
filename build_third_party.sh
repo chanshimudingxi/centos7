@@ -1,7 +1,7 @@
 #!/bin/sh
 
-#WORKPATH=$(dirname $(pwd))
-WORKPATH=$(pwd)
+WORKPATH=$(dirname $(pwd))
+#WORKPATH=$(pwd)
 echo "workpath: ${WORKPATH}"
 THIRD_PARTY_PATH=${WORKPATH}/third_party
 echo "third_party: ${THIRD_PARTY_PATH}"
