@@ -16,6 +16,24 @@ if [ ! -d ${BUILD_PATH} ]; then
     mkdir -p ${BUILD_PATH}
 fi
 
+# libuv
+cd ${THIRD_PARTY_PATH}
+if [ ! -d libuv-v1.50.0 ]; then
+    wget https://dist.libuv.org/dist/v1.50.0/libuv-v1.50.0.tar.gz
+    tar -zxvf libuv-v1.50.0.tar.gz
+    cd libuv-v1.50.0
+else
+    cd libuv-v1.50.0
+    make uninstall
+    make clean
+fi
+sh autogen.sh
+./configure --prefix=${BUILD_PATH}
+make
+make check
+#make生成.libs目录，里面是编译好的静态库，核心是 libuv.a 文件。
+make install
+
 # hiredis
 cd ${THIRD_PARTY_PATH}
 if [ ! -d hiredis-1.2.0 ]; then
@@ -32,12 +50,12 @@ make PREFIX=${BUILD_PATH} install
 
 # redis-plus-plus
 cd ${THIRD_PARTY_PATH}
-if [ ! -d redis-plus-plus-1.3.12 ]; then
-    wget https://github.com/sewenew/redis-plus-plus/archive/refs/tags/1.3.12.tar.gz
-    tar -zxvf 1.3.12.tar.gz
-    cd redis-plus-plus-1.3.12
+if [ ! -d redis-plus-plus-1.3.13 ]; then
+    wget https://github.com/sewenew/redis-plus-plus/archive/refs/tags/1.3.13.tar.gz
+    tar -zxvf 1.3.13.tar.gz
+    cd redis-plus-plus-1.3.13
 else
-    cd redis-plus-plus-1.3.12
+    cd redis-plus-plus-1.3.13
     make uninstall
     make clean
 fi
@@ -45,7 +63,7 @@ if [ ! -d build ]; then
     mkdir -p build
 fi
 cd build
-cmake3 -DCMAKE_PREFIX_PATH=${BUILD_PATH} -DCMAKE_INSTALL_PREFIX=${BUILD_PATH} -DREDIS_PLUS_PLUS_CXX_STANDARD=11 -DREDIS_PLUS_PLUS_BUILD_SHARED=OFF ..
+cmake3 -DCMAKE_PREFIX_PATH=${BUILD_PATH} -DCMAKE_INSTALL_PREFIX=${BUILD_PATH} -DREDIS_PLUS_PLUS_CXX_STANDARD=11 -DREDIS_PLUS_PLUS_BUILD_SHARED=OFF -DREDIS_PLUS_PLUS_BUILD_ASYNC=libuv ..
 make
 make install
 
