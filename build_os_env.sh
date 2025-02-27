@@ -26,7 +26,7 @@ yum install -y zlib-static zlib-devel
 yum install -y openssl-static openssl-devel 
 yum install -y mysql-devel
 yum install -y wget git vim net-tools tcpdump make cmake3 automake libtool m4 autoconf mlocate
-yum install -y devtoolset-8-gcc devtoolset-8-gcc-c++ devtoolset-8-gdb devtoolset-8-binutils yum install devtoolset-8-libasan-devel
+yum install -y devtoolset-8-gcc devtoolset-8-gcc-c++ devtoolset-8-gdb devtoolset-8-binutils devtoolset-8-libasan-devel
 
 # zlib
 # yum -y remove zlib zlib-devel
