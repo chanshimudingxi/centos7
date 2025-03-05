@@ -13,3 +13,4 @@ rpm -ivh mysql-community-*.rpm
 wget https://repo.mysql.com/yum/mysql-5.6-community/el/7/x86_64/mysql-community-libs-5.6.51-2.el7.x86_64.rpm
 wget https://repo.mysql.com/yum/mysql-5.6-community/el/7/x86_64/mysql-community-common-5.6.51-2.el7.x86_64.rpm
 wget https://repo.mysql.com/yum/mysql-5.6-community/el/7/x86_64/mysql-community-devel-5.6.51-2.el7.x86_64.rpm
+rpm -ivh mysql-community-*.rpm
