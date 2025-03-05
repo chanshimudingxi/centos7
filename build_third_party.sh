@@ -82,7 +82,7 @@ autoreconf -fi
 # export CPPFLAGS="-I/usr/include/openssl -I/usr/include"
 # export LDFLAGS="-L/usr/lib64"
 # ./configure --disable-shared --enable-static --without-libpsl --with-openssl --with-zlib --prefix=${BUILD_PATH}
-./configure --disable-shared --enable-static --with-zlib --disable-dict --disable-pop3 --disable-imap --disable-smb --disable-smtp --disable-gopher --disable-mqtt --disable-manual --disable-ldap --disable-ldaps --disable-rtsp  --disable-tftp --disable-file --disable-ftp --disable-telnet  --disable-docs --without-zstd --with-openssl --prefix=${BUILD_PATH}
+./configure --disable-shared --enable-static --with-zlib --disable-dict --disable-pop3 --disable-imap --disable-smb --disable-smtp --disable-gopher --disable-mqtt --disable-manual --disable-ldap --disable-ldaps --disable-rtsp  --disable-tftp --disable-file --disable-ftp --disable-telnet  --disable-docs --enable-websockets --without-zstd --with-openssl --prefix=${BUILD_PATH}
 make
 make install
 
